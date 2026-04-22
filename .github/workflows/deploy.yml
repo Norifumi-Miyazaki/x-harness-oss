@@ -23,7 +23,7 @@ jobs:
         working-directory: apps/worker
 
       - name: Worker デプロイ
-        run: pnpm exec wrangler deploy
+        run: npx wrangler deploy
         working-directory: apps/worker
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -42,7 +42,7 @@ jobs:
       - name: pnpm インストール
         uses: pnpm/action-setup@v4
 
-      - name: 依存関係インストール
+      - name: 依存関係インストール（ルート）
         run: pnpm install --no-frozen-lockfile
 
       - name: Next.js ビルド
@@ -52,7 +52,7 @@ jobs:
           NEXT_PUBLIC_API_URL: https://my-x-bot.thinkbal-line-crm.workers.dev
 
       - name: Cloudflare Pages デプロイ
-        run: pnpm exec wrangler pages deploy out --project-name my-x-bot-admin-fb2b6651 --commit-dirty=true
+        run: npx wrangler pages deploy out --project-name my-x-bot-admin-fb2b6651 --commit-dirty=true
         working-directory: apps/web
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
