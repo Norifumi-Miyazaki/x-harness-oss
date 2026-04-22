@@ -17,8 +17,6 @@ jobs:
 
       - name: pnpm インストール
         uses: pnpm/action-setup@v4
-        with:
-          version: 10
 
       - name: 依存関係インストール
         run: pnpm install --frozen-lockfile
@@ -43,8 +41,6 @@ jobs:
 
       - name: pnpm インストール
         uses: pnpm/action-setup@v4
-        with:
-          version: 10
 
       - name: 依存関係インストール
         run: pnpm install --frozen-lockfile
