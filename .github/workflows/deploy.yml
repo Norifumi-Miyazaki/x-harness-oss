@@ -19,7 +19,7 @@ jobs:
         uses: pnpm/action-setup@v4
 
       - name: 依存関係インストール
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --no-frozen-lockfile
         working-directory: apps/worker
 
       - name: Worker デプロイ
@@ -43,7 +43,7 @@ jobs:
         uses: pnpm/action-setup@v4
 
       - name: 依存関係インストール
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --no-frozen-lockfile
 
       - name: Next.js ビルド
         run: pnpm run build
